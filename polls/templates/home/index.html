@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>DJango</title>
+</head>
+<body style="user-select : none">
+    <!-- <H1>I am first djano thing.</H1> -->
+
+    <table class="container">
+        <tr>
+          <th>Sr Number</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Elidgibiltiy</th>
+        </tr>
+
+        {% for people in peoples %}
+        <tr>
+          <td>{{forloop.counter}}</forloop></td>
+          <td>{{people.name}}</td>
+          <td>{{people.age}}</td>
+          <td {% if people.age <= 18 %} style="background-color: rgb(247, 106, 106);" {% else %} style="background-color: rgb(113, 231, 113);" {% endif %}>
+            {% if people.age >= 18 %}
+            👍
+            {% else %}
+            👎
+            {% endif %}
+
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    <p>
+        {{text | truncatechars:15}}
+    </p>
+
+</body>
+</html>
